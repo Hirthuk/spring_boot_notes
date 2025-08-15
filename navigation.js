@@ -29,10 +29,13 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                background: linear-gradient(135deg, #6db33f 0%, #4d8029 100%);
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                background: linear-gradient(135deg, rgba(109, 179, 63, 0.95) 0%, rgba(77, 128, 41, 0.95) 100%);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.1);
                 z-index: 1000;
-                padding: 10px 0;
+                padding: 15px 0;
+                transition: all 0.3s ease;
             ">
                 <div style="
                     max-width: 1200px;
@@ -47,13 +50,27 @@
                         align-items: center;
                         gap: 15px;
                     ">
-                        <img src="https://www.notion.so/icons/arrow-up_blue.svg" 
-                             style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
+                        <div style="
+                            width: 50px;
+                            height: 50px;
+                            background: rgba(255, 255, 255, 0.15);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            backdrop-filter: blur(10px);
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                        ">
+                            <img src="https://www.notion.so/icons/arrow-up_blue.svg" 
+                                 style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
+                        </div>
                         <h3 style="
                             color: white;
                             margin: 0;
-                            font-size: 1.4rem;
-                            font-weight: 600;
+                            font-size: 1.5rem;
+                            font-weight: 700;
+                            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                            letter-spacing: -0.5px;
                         ">Spring Boot Guide</h3>
                     </div>
                     
@@ -63,16 +80,21 @@
                         gap: 10px;
                     ">
                         <select id="page-selector" style="
-                            background: rgba(255,255,255,0.1);
+                            background: rgba(255,255,255,0.15);
                             color: white;
                             border: 1px solid rgba(255,255,255,0.3);
-                            border-radius: 6px;
-                            padding: 8px 12px;
+                            border-radius: 12px;
+                            padding: 12px 16px;
                             font-size: 14px;
+                            font-weight: 500;
                             outline: none;
                             cursor: pointer;
-                            min-width: 200px;
-                        ">
+                            min-width: 220px;
+                            backdrop-filter: blur(10px);
+                            transition: all 0.3s ease;
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                        " onmouseover="this.style.background='rgba(255,255,255,0.25)'" 
+                           onmouseout="this.style.background='rgba(255,255,255,0.15)'"">
                             <option value="">Navigate to...</option>
                             ${navigationData.map(item => `
                                 <option value="${item.url}" ${item.url === currentPage ? 'selected' : ''}>
@@ -82,14 +104,25 @@
                         </select>
                         
                         <button id="nav-toggle" style="
-                            background: rgba(255,255,255,0.1);
+                            background: rgba(255,255,255,0.15);
                             color: white;
                             border: 1px solid rgba(255,255,255,0.3);
-                            border-radius: 6px;
-                            padding: 8px 12px;
+                            border-radius: 12px;
+                            padding: 12px 16px;
                             cursor: pointer;
                             font-size: 14px;
-                        ">☰ Menu</button>
+                            font-weight: 600;
+                            backdrop-filter: blur(10px);
+                            transition: all 0.3s ease;
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                        " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='translateY(-2px)'" 
+                           onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 16px;">☰</span>
+                            <span>Menu</span>
+                        </button>
                     </div>
                 </div>
                 

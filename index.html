@@ -6,14 +6,56 @@
     <title>Spring Boot Complete Guide</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://www.notion.so/icons/arrow-up_blue.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span class="theme-icon">🌙</span>
+    </button>
+
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <img src="https://www.notion.so/icons/arrow-up_blue.svg" alt="Spring Boot" class="header-icon">
-                <h1>Spring Boot Complete Guide</h1>
-                <p class="subtitle">Comprehensive notes on Spring Boot development</p>
+                <div class="logo-container">
+                    <div class="logo-ring">
+                        <img src="https://www.notion.so/icons/arrow-up_blue.svg" alt="Spring Boot" class="header-icon">
+                    </div>
+                </div>
+                <h1 class="main-title">
+                    <span class="title-text">Spring Boot</span>
+                    <span class="title-highlight">Complete Guide</span>
+                </h1>
+                <p class="subtitle">
+                    <span class="subtitle-icon">⚡</span>
+                    Comprehensive notes on Spring Boot development
+                    <span class="subtitle-badge">2024 Edition</span>
+                </p>
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Topics</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Examples</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Learning</span>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -116,19 +158,127 @@
                             <p>Additional tips, tricks, and best practices</p>
                         </div>
                     </a>
+
+                    <a href="demo.html" class="nav-item demo" style="border: 2px solid var(--accent-color); background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 138, 128, 0.1));">
+                        <div class="nav-icon" style="background: var(--gradient-accent);">✨</div>
+                        <div class="nav-text">
+                            <h3 style="color: var(--accent-color);">🎨 UI Demo Page</h3>
+                            <p>Experience the enhanced design features and interactive elements</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </nav>
 
         <footer class="footer">
             <div class="footer-content">
-                <p>🌟 Spring Boot Learning Journey | Created with GitHub Pages</p>
-                <div class="footer-links">
-                    <a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot Official</a>
-                    <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/" target="_blank">Documentation</a>
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <img src="https://www.notion.so/icons/arrow-up_blue.svg" alt="Spring Boot" class="footer-logo">
+                        <h3>Spring Boot Guide</h3>
+                        <p>Empowering developers with comprehensive Spring Boot knowledge</p>
+                    </div>
+                    <div class="footer-links-grid">
+                        <div class="link-group">
+                            <h4>Resources</h4>
+                            <a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot Official</a>
+                            <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/" target="_blank">Documentation</a>
+                            <a href="https://github.com/spring-projects/spring-boot" target="_blank">GitHub Repository</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Learning</h4>
+                            <a href="#tutorials">Tutorials</a>
+                            <a href="#examples">Code Examples</a>
+                            <a href="#best-practices">Best Practices</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Community</h4>
+                            <a href="https://stackoverflow.com/questions/tagged/spring-boot" target="_blank">Stack Overflow</a>
+                            <a href="https://spring.io/community" target="_blank">Spring Community</a>
+                            <a href="#contribute">Contribute</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>🌟 Spring Boot Learning Journey | Created with ❤️ and GitHub Pages</p>
+                    <div class="footer-social">
+                        <span class="social-badge">⭐ Star on GitHub</span>
+                        <span class="social-badge">🚀 Share Knowledge</span>
+                    </div>
                 </div>
             </div>
         </footer>
     </div>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+            
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.querySelector('.theme-icon');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.textContent = '☀️';
+            }
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                observer.observe(item);
+            });
+
+            // Add hover sound effect (optional)
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Parallax effect for background shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+    </script>
 </body>
 </html>
