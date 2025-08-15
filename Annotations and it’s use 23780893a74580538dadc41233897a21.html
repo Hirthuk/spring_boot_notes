@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Annotations and it’s use</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23780893-a745-8053-8dad-c41233897a21" class="page sans"><header><h1 class="page-title">Annotations and it’s use</h1><p class="page-description"></p></header><div class="page-body"><h2 id="23780893-a745-80d7-a8a2-e2d25e610fe0" class="">✅ Spring Boot &amp; JPA Annotations (Quick Notes)</h2><hr id="23780893-a745-80dd-a1c5-e3bcb8b6ed08"/><h3 id="23780893-a745-80c5-a15a-e55b19416cb0" class="">🔹 JPA / Hibernate Annotations (Database Mapping)</h3><ul id="23780893-a745-807a-add1-d5d351364228" class="bulleted-list"><li style="list-style-type:disc"><code>@Entity</code><p id="23780893-a745-80ca-8da7-d86179cbbef1" class="">→ Marks the class as a JPA entity (maps to a database table).</p></li></ul><ul id="23780893-a745-8098-8d1d-eb60a3c80435" class="bulleted-list"><li style="list-style-type:disc"><code>@Table(name = &quot;table_name&quot;)</code><p id="23780893-a745-80bf-8167-d843dfbcf742" class="">→ Specifies the table name in the database.</p></li></ul><ul id="23780893-a745-80da-aece-e5b6eae84055" class="bulleted-list"><li style="list-style-type:disc"><code>@Id</code><p id="23780893-a745-80bb-9e44-db3a04644f8f" class="">→ Marks the primary key field.</p></li></ul><ul id="23780893-a745-8024-92c6-e9b894cc280a" class="bulleted-list"><li style="list-style-type:disc"><code>@GeneratedValue(strategy = GenerationType.IDENTITY)</code><p id="23780893-a745-8057-b62b-cf8b08dbdc57" class="">→ Auto-generates the primary key using DB identity.</p></li></ul><ul id="23780893-a745-8016-86a8-dce0ccc70293" class="bulleted-list"><li style="list-style-type:disc"><code>@Column(name = &quot;column_name&quot;)</code><p id="23780893-a745-803b-8c55-c8d6a5cd84b2" class="">→ Maps a field to a specific database column.</p></li></ul><ul id="23780893-a745-80c5-ab19-c0c547b65e07" class="bulleted-list"><li style="list-style-type:disc"><code>@Temporal(TemporalType.DATE)</code><p id="23780893-a745-8086-bf1c-cabaf1f7894c" class="">→ Specifies date format for <code>java.util.Date</code> (DATE, TIME, or TIMESTAMP).</p></li></ul><hr id="23780893-a745-802c-b2c6-f153d71ea04c"/><h3 id="23780893-a745-8091-8754-d70c90f471a8" class="">🔹 Spring Repository Annotations</h3><ul id="23780893-a745-8070-92c7-d63fb5259ff8" class="bulleted-list"><li style="list-style-type:disc"><code>@Repository</code><p id="23780893-a745-8095-95d8-db51c80701d4" class="">→ Declares the class/interface as a repository bean for database operations.</p></li></ul><hr id="23780893-a745-8026-bdb8-c133a9b18ac5"/><h3 id="23780893-a745-8034-990a-f9110ac59735" class="">🔹 Spring Web (REST API) Annotations</h3><ul id="23780893-a745-807a-bd9a-e7d1c8f43ef2" class="bulleted-list"><li style="list-style-type:disc"><code>@RestController</code><p id="23780893-a745-8030-8518-d9f2ea8a6215" class="">→ Marks the class as a REST API controller (returns JSON by default).</p></li></ul><ul id="23780893-a745-8011-963b-c52b13d8d7c6" class="bulleted-list"><li style="list-style-type:disc"><code>@RequestMapping(&quot;path&quot;)</code><p id="23780893-a745-80dd-88e2-dec1ceb463b4" class="">→ Sets the base URL path for the controller.</p></li></ul><ul id="23780893-a745-8064-bd52-c15a302d5ba8" class="bulleted-list"><li style="list-style-type:disc"><code>@GetMapping(&quot;path&quot;)</code><p id="23780893-a745-80a2-8cc7-e8ba55c01f87" class="">→ Maps to HTTP GET requests.</p></li></ul><ul id="23780893-a745-80eb-b370-e3daf8174527" class="bulleted-list"><li style="list-style-type:disc"><code>@PostMapping(&quot;path&quot;)</code><p id="23780893-a745-804a-ab51-e6d00198f201" class="">→ Maps to HTTP POST requests.</p></li></ul><ul id="23780893-a745-80b7-ad5c-dba0ee0da7f8" class="bulleted-list"><li style="list-style-type:disc"><code>@PutMapping(&quot;path&quot;)</code><p id="23780893-a745-8074-8f6e-fe4f5ffe883e" class="">→ Maps to HTTP PUT requests.</p></li></ul><ul id="23780893-a745-80de-9b48-eb42f3da5da6" class="bulleted-list"><li style="list-style-type:disc"><code>@DeleteMapping(&quot;path&quot;)</code><p id="23780893-a745-8049-a132-fddd09f5c97f" class="">→ Maps to HTTP DELETE requests.</p></li></ul><ul id="23780893-a745-8001-b44f-d2c8ad9f96e4" class="bulleted-list"><li style="list-style-type:disc"><code>@RequestBody</code><p id="23780893-a745-8001-9430-f06797c0c56c" class="">→ Binds the incoming request body (JSON) to a method parameter.</p></li></ul><ul id="23780893-a745-80b6-bc8f-dd4792bfe177" class="bulleted-list"><li style="list-style-type:disc"><code>@PathVariable</code><p id="23780893-a745-80c7-8f62-c4a779a9a301" class="">→ Binds a variable from the URL path.</p></li></ul><ul id="23780893-a745-8085-9d7e-ff4d394ba3e9" class="bulleted-list"><li style="list-style-type:disc"><code>@RequestParam</code><p id="23780893-a745-80f1-b79f-cc1ae03f2862" class="">→ Binds a query parameter from the URL.</p></li></ul><hr id="23780893-a745-80d6-9524-c183e30cfd08"/><h3 id="23780893-a745-80a7-a34f-e54e144e5d0f" class="">🔹 Spring Core</h3><ul id="23780893-a745-8046-bc20-f863481c4586" class="bulleted-list"><li style="list-style-type:disc"><code>@Autowired</code><p id="23780893-a745-8039-8c4d-cfeda1282735" class="">→ Injects dependencies automatically.</p></li></ul><ul id="23780893-a745-8082-8f07-f62e34eb10af" class="bulleted-list"><li style="list-style-type:disc"><code>@Component</code><p id="23780893-a745-807e-bcbc-fce0391956fc" class="">→ Marks a class as a Spring-managed component.  Tells Spring to create and manage this class for dependency injection.</p></li></ul><ul id="23780893-a745-8078-b58d-e445c3b43bf6" class="bulleted-list"><li style="list-style-type:disc"><code>@Service</code><p id="23780893-a745-80cd-9311-d8b640deb31c" class="">→ Marks a class as a service layer component.</p></li></ul><ul id="23780893-a745-809c-b48d-c7f41474148b" class="bulleted-list"><li style="list-style-type:disc"><code>@Configuration</code><p id="23780893-a745-80b4-b105-fc4c5f78998f" class="">→ Used to mark a class that contains bean definitions. Tells Spring this class will provide custom beans.</p></li></ul><ul id="24480893-a745-802e-aa23-f77de5b30b4a" class="bulleted-list"><li style="list-style-type:disc"><code>@Bean</code><p id="24480893-a745-803b-a82c-f6dcf390bffa" class="">→ Used to define a method that returns an object to be managed by Spring. That object becomes available for dependency injection.</p></li></ul><hr id="23780893-a745-80b7-881b-d7da8dcf037b"/><h3 id="23780893-a745-80a5-9751-e36afada98bc" class="">🔹 Spring Security</h3><ul id="24480893-a745-8064-b04c-cfbce619ab97" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-pink">@PreAuthorize</mark></li></ul><p id="24480893-a745-8075-87a7-efc471c97bd6" class="">→ Provides method-level security through Spring Expression Language (SpEL).</p><ul id="24480893-a745-80b4-abcf-d589ee7d65a2" class="bulleted-list"><li style="list-style-type:disc"><code>@PreAuthorize(&quot;hasRole(&#x27;ADMIN&#x27;)&quot;)</code>→ Restricts method access to users with ADMIN role.</li></ul><ul id="24480893-a745-8042-82ab-c4e7a81c560d" class="bulleted-list"><li style="list-style-type:disc"><code>@PreAuthorize(&quot;hasAuthority(&#x27;READ_PRIVILEGE&#x27;)&quot;)</code>→ Restricts method access based on specific authorities.</li></ul><ul id="24480893-a745-80a2-9913-d4262a8a10b4" class="bulleted-list"><li style="list-style-type:disc"><code>@PreAuthorize(&quot;#id == authentication.principal.id&quot;)</code>→ Allows access only if the path variable matches the current user&#x27;s ID.</li></ul><p id="24980893-a745-8036-9cc3-d8f8b8344667" class="">🔹 <strong>Spring Exception Handling </strong></p><p id="24980893-a745-80ab-b87b-f7504e99e392" class=""><mark class="highlight-blue">@ControllerAdvice Annotation</mark></p><ul id="24980893-a745-8050-876c-e2e092d0092b" class="bulleted-list"><li style="list-style-type:disc"><strong>Centralized exception handling</strong>: Instead of scattering <code>try-catch</code> everywhere, you have one class to handle exceptions for all controllers.</li></ul><ul id="24980893-a745-803f-b5fa-f3a67dc40339" class="bulleted-list"><li style="list-style-type:disc"><strong>Keeps code clean</strong>: Your controllers focus only on request handling, not error formatting.</li></ul><ul id="24980893-a745-8071-ad42-e9f1fe04c5b9" class="bulleted-list"><li style="list-style-type:disc"><strong>Custom error responses</strong>: You can send a consistent error JSON format to clients using your DTO.</li></ul><ul id="24980893-a745-8065-91f5-c6d23131d19f" class="bulleted-list"><li style="list-style-type:disc"><strong>Reusability</strong>: Works for all controllers without extra code.</li></ul><p id="24a80893-a745-80de-b95e-c0531b848ca6" class=""><mark class="highlight-teal">@ExceptionHandler</mark></p><ul id="24a80893-a745-8024-9ae8-effa4b0bc204" class="bulleted-list"><li style="list-style-type:disc">To Catch the particular exception and handle the return with annotated method</li></ul><p id="24480893-a745-80a2-8e75-dc89d9c9e2c2" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,86 @@
+# GitHub Pages Configuration for Spring Boot Notes
+
+# Site settings
+title: "Spring Boot Complete Guide"
+description: "Comprehensive Spring Boot development notes and tutorials"
+author: "Spring Boot Learning Journey"
+email: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# GitHub Pages specific settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collection settings for better organization
+collections:
+  notes:
+    output: true
+    permalink: /:collection/:name/
+
+# SEO and social
+url: ""
+baseurl: ""
+twitter_username: ""
+github_username: ""
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Include files that start with underscore
+include:
+  - _pages
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "default"
+
+# Site navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Spring Dependencies"
+    url: "/Spring Dependencies 23580893a745806899f5fedaf31ba435.html"
+  - title: "Database Config"
+    url: "/Database configuration 23680893a745801ebde1dc2054a7c3cb.html"
+  - title: "Spring Security"
+    url: "/Spring Security 24580893a7458076bd9bf990e56926eb.html"
+  - title: "JWT Authentication"
+    url: "/JSON Web Token Authentication 24580893a7458077bdcef84c15e0ce6c.html"
+
+# GitHub Pages settings
+github: [metadata]
+safe: true
+source: .
+destination: ./_site
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
